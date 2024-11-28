@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog System</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="mode-toggle">
+            <button id="toggle-mode">Dark Mode 🌙 </button>
+        </div>
+
+
+        <div id="chat-feed" class="chat-feed">
+            <!-- Chat messages will appear here -->
+        </div>
+        <form id="user-input-form" class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        // JavaScript for Chat and Dark Mode Toggle
+        const form = document.getElementById('user-input-form');
+        const feed = document.getElementById('chat-feed');
+        const toggleButton = document.getElementById('toggle-mode');
+        const body = document.body;
+
+        function displayGreeting() {
+        const greetingMessage = document.createElement('div');
+        greetingMessage.className = 'message system'; // System-styled message
+        greetingMessage.textContent = "Welcome! How can I assist you today? Please respond with Yes, No, or Not Sure.";
+        feed.appendChild(greetingMessage);
+        }
+        displayGreeting();
+
+        // Chat interaction logic (from previous implementation)
+       form.onsubmit = async function (e) {
+        e.preventDefault();
+        const input = document.getElementById('user-input');
+        const message = input.value.trim();
+
+           if (message) {
+            // Add the user's message to the chat feed
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.textContent = message;
+            feed.appendChild(userMessage);
+
+            const response = await fetch('/respond', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message })
+            });
+
+         // Get the response and display it
+            const data = await response.json();
+            const systemMessage = document.createElement('div');
+            systemMessage.className = 'message system';
+            systemMessage.textContent = data.response;
+            feed.appendChild(systemMessage);
+
+            // Scroll to the bottom
+            feed.scrollTop = feed.scrollHeight;
+            input.value = '';
+
+            }
+        };
+
+
+
+        // Toggle between light and dark mode
+        toggleButton.onclick = function () {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                   toggleButton.textContent = "Dark Mode 🌙 ";
+            } else {
+                  toggleButton.textContent = "Light Mode ☀️ ";
+            }
+        };
+    </script>
+</body>
+</html>

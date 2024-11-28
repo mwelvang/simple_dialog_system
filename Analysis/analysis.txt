@@ -1,0 +1,21 @@
+1.      Does the dialog system correctly transition between states based on user input?
+
+2.      Does the system handle invalid or unclear user inputs gracefully?
+
+3.      If the user stops responding or exits the session unexpectedly,
+        can the system save their progress to log file and resume smoothly in a future session?
+
+4.      Does the system handle multiple goals (of a particular chosen theme) from the same user effectively?
+
+5.      Does the Confidence Check step effectively encourage problem-solving when confidence is low?
+
+6.      Is the SMART Planning state comprehensive enough to capture all necessary details for an actionable plan?
+
+7.      How does the system handle backtracking when a user changes their mind or needs to adjust their goals?
+
+8.      Are follow-up interactions in the Check-On Progress state consistent and useful for the user?
+
+9.      Does the system offer closure and a natural end to the conversation if the user has met their goals?
+
+10.     Does the log file accurately capture each user input and system response,
+        and can it be used effectively to review the conversation flow?

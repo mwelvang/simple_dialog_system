@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 400px;
+    height: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode .chat-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .message.user {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+body.dark-mode .message.system {
+    background-color: #333;
+    color: #cccccc;
+}
+
+body.dark-mode .input-container {
+    background-color: #292929;
+    border-top: 1px solid #444;
+}
+
+body.dark-mode .input-container input {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+body.dark-mode .input-container button {
+    background-color: #555;
+    color: #ffffff;
+}
+
+/* Light Mode Messages */
+.message.user {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+}
+
+.message.system {
+    background-color: #e2e3e5;
+    align-self: flex-start;
+}
+
+/* Mode Toggle Button */
+.mode-toggle {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+.mode-toggle button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: inherit;
+}
+
+body.dark-mode .mode-toggle {
+    background-color: #292929;
+    border-bottom: 1px solid #444;
+}
+
+/* Chat Feed */
+.chat-feed {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Messages */
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+}
+
+.message.system {
+    background-color: #e2e3e5;
+    align-self: flex-start;
+}
+
+/* Input Container */
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f1f1f1;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-container button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Scrollbar (optional) */
+.chat-feed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-feed::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.chat-feed::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
